@@ -1,0 +1,24 @@
+<header class="main-header">
+    <div class="main-header-content">
+            <h1 class="page-title hidden">{{@blog.title}}</h1>
+            {{#if @blog.logo}}<a class="blog-logo" href="{{@blog.url}}"><img src="{{@blog.logo}}" alt="Blog Logo" width="200" height="200"/></a>{{/if}}
+            <h2 class="page-description">{{@blog.description}}</h2>
+
+    </div>
+    <nav class="main-nav">
+        <ul>
+            <li>
+            <a href="/"><h2>Work</h2></a>
+            <div id="filters" class="button-group">
+                <button type="button" data-filter="*">Show All</button>
+                <button type="button" data-filter=".branding">Branding</button>
+                <button type="button" data-filter=".print">Print</button>
+                <button type="button" data-filter=".web">Web</button>
+                <button type="button" data-filter=".fine-art">Fine Art</button>
+            </div>
+            </li>
+            <li><a href="/#"><h2>Résumé</h2></a></li>
+            <li><a href="/about/"><h2>About</h2></a></li>
+        </ul>
+    </nav>
+</header>

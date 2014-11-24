@@ -1,0 +1,12 @@
+{{! Previous/next page links - only displayed on page 2+ }}
+
+{{! This is the post loop - each post will be output using this markup }}
+
+<div class="isotope">
+{{#foreach posts}}
+        <div class="item {{#foreach tags}}{{name}} {{/foreach}}">
+            <img src="{{image}}" />
+            <a class="item-title" href="{{url}}"><span>{{{title}}}</span></a>
+        </div>
+{{/foreach}}
+</div>
