@@ -7,18 +7,12 @@
     </div>
     <nav class="main-nav">
         <ul>
-            <li>
+            <li class="nav-item">
             <a href="/"><h2>Work</h2></a>
-            <div id="filters" class="button-group">
+            <div id="filters" class="button-group" data-tags="{{#foreach posts}}{{#foreach tags}}{{name}} {{/foreach}}{{/foreach}}">
                 <button type="button" data-filter="*">Show All</button>
-                <button type="button" data-filter=".branding">Branding</button>
-                <button type="button" data-filter=".print">Print</button>
-                <button type="button" data-filter=".web">Web</button>
-                <button type="button" data-filter=".fine-art">Fine Art</button>
             </div>
             </li>
-            <li><a href="/#"><h2>Résumé</h2></a></li>
-            <li><a href="/about/"><h2>About</h2></a></li>
         </ul>
     </nav>
 </header>

@@ -4,9 +4,11 @@
 
 <div class="isotope">
 {{#foreach posts}}
-        <div class="item {{#foreach tags}}{{name}} {{/foreach}}">
+	{{#if image}}
+        <div data-id="{{url}}" class="item">
             <img src="{{image}}" />
             <a class="item-title" href="{{url}}"><span>{{{title}}}</span></a>
         </div>
+    {{/if}}
 {{/foreach}}
 </div>
