@@ -1,3 +1,10 @@
+/**************************************************************************************
+* Portefeuille.js
+*
+* This theme requires some customization.
+* Enter your social media URLs in social-config.json so they appear on the nav bar.
+***************************************************************************************/
+
 var portefeuille = {
 	items: [],
 	tags: [],
@@ -8,6 +15,13 @@ var portefeuille = {
 		return (str.charAt(0).toUpperCase() + str.slice(1)).replace("-", " ");
 	}
 };
+
+$.getJSON($('#social-config').attr("src"), function(config) {
+	console.log("Success", config);
+	$.each(config, function(key, value) {
+		$(".share").append('<a href="'+(key === "email" ? "mailto:" : "")+value+'"><i class="fa fa-'+(key === "email" ? "envelope" : key)+'"><span class="hidden">'+portefeuille.format(key)+'</span></i></a>');
+	});
+});
 
 $.ajax({
 	type: "GET",

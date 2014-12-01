@@ -16,7 +16,7 @@
 
     {{! Styles'n'Scripts }}
     <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="//use.typekit.net/tzu6tau.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
 
@@ -33,16 +33,17 @@
     {{ghost_foot}}
 
     {{! The main JavaScript file for portefeuille }}
+    <script id="social-config" type="application/json" src="{{asset "/social-config.json"}}"></script>
     <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
     <script type="text/javascript" src="{{asset "js/underscore-min.js"}}"></script>
     <script type="text/javascript" src="{{asset "js/backbone-min.js"}}"></script>
     <script type="text/javascript" src="{{asset "js/isotope.pkgd.min.js"}}"></script>
     <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
     <script type="text/javascript" src="{{asset "js/portefeuille.js"}}"></script>
-
+    
 </body>
     <footer class="site-footer clearfix">
          <section class="copyright"><a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</section>
-         <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+         <section class="poweredby"><a href="http://merciba.com/portefeuille">Portefeuille</a> theme for <a href="https://ghost.org">Ghost</a></section>
     </footer>
 </html>
