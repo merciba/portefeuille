@@ -19,8 +19,10 @@ var portefeuille = {
 $.getJSON($('#social-config').attr("src"), function(config) {
 	console.log("Success", config);
 	$.each(config, function(key, value) {
-		$(".share").append('<a href="'+(key === "email" ? "mailto:" : "")+value+'"><i class="fa fa-'+(key === "email" ? "envelope" : key)+'"><span class="hidden">'+portefeuille.format(key)+'</span></i></a>');
+		if (key !== "resume") $(".share").append('<a href="'+(key === "email" ? "mailto:" : "")+value+'"><i class="fa fa-'+(key === "email" ? "envelope" : key)+'"><span class="hidden">'+portefeuille.format(key)+'</span></i></a>');
+		if (key === "resume") $('.main-nav ul').append('<li><a href="'+value+'"><h2>résumé</h2></a></li>');
 	});
+
 });
 
 $.ajax({
