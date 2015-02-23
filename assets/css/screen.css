@@ -40,7 +40,6 @@ html {
 body { 
     margin: 30px auto;
     max-width: 1464px;
-    overflow: hidden;
 }
 i { padding: 7px;}
 a { background: transparent; text-decoration: none;}
@@ -564,15 +563,16 @@ margin on the iframe, cause it breaks stuff. */
 
 /* Big cover image on the home page */
 .main-header {
-    position: relative;
-    float: left;
+    position: fixed;
+    top: 0;
+    left: 0;
     max-width: 240px;
     height: 100%;
     margin-bottom: 5rem;
     text-align: left;
     background: no-repeat center center;
     background-size: cover;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 .main-header .inner {
@@ -967,7 +967,7 @@ body:not(.post-template) .post-title {
 /* Stop .full-img from creating horizontal scroll - slight hack due to
    imperfections with browser width % calculations and rounding */
 .post-template .content {
-    overflow-y:scroll;
+    /*overflow-y:scroll;*/
 }
 
 /* Tweak the .post wrapper style */
@@ -1583,6 +1583,7 @@ body:not(.post-template) .post-title {
         margin-bottom: 15px;
         height: auto;
         min-width: 100%;
+        position: relative;
     }
 
     .content {
