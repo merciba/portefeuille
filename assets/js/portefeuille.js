@@ -17,12 +17,10 @@ var portefeuille = {
 };
 
 $.getJSON($('#social-config').attr("src"), function(config) {
-	console.log("Success", config);
 	$.each(config, function(key, value) {
 		if (key !== "resume") $(".share").append('<a href="'+(key === "email" ? "mailto:" : "")+value+'"><i class="fa fa-'+(key === "email" ? "envelope" : key)+'"><span class="hidden">'+portefeuille.format(key)+'</span></i></a>');
 		if (key === "resume") $('.main-nav ul').append('<li><a href="'+value+'"><h2>résumé</h2></a></li>');
 	});
-
 });
 
 $.ajax({
@@ -54,7 +52,7 @@ $.ajax({
  			});
 
  			item.gallery_div = $('div[data-id="'+item.link.replace(window.location.origin, '')+'"]');
-
+ 			//console.log(item);
  			if (item.nav_item) {
  				$('.main-nav ul').append('<li><a href="'+item.link+'"><h2'+(item.link === window.location.href ? ' class="selected"' : '')+'>'+item.title+'</h2></a></li>');
  			}

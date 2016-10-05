@@ -33,15 +33,14 @@ audio, canvas, video { display: inline-block; }
 audio:not([controls]) { display: none; height: 0; }
 [hidden], template { display: none; }
 html {
-   font-family: "nimbus sans", sans-serif;
    -ms-text-size-adjust: 100%;
    -webkit-text-size-adjust: 100%;
 }
-body { 
-    margin: 30px auto;
+body {
+    width: 100%; 
+    margin: 30px auto 0 auto;
     max-width: 1464px;
 }
-i { padding: 7px;}
 a { background: transparent; text-decoration: none;}
 a:focus, a:active { outline: 0;}
 a:hover { outline: 0; }
@@ -104,69 +103,6 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 
 /* ==========================================================================
-   1. Icons - Sets up the icon font and respective classes
-   ========================================================================== */
-
-/* Import the font file with the icons in it */
-@font-face {
-    font-family: "portefeuille-icons";
-    src:url("../fonts/portefeuille-icons.eot");
-    src:url("../fonts/portefeuille-icons.eot?#iefix") format("embedded-opentype"),
-        url("../fonts/portefeuille-icons.woff") format("woff"),
-        url("../fonts/portefeuille-icons.ttf") format("truetype"),
-        url("../fonts/portefeuille-icons.svg#icons") format("svg");
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* Apply these base styles to all icons */
-[class^="icon-"]:before, [class*=" icon-"]:before {
-    font-family: "portefeuille-icons", "nimbus-sans", sans-serif;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    text-decoration: none !important;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-/* Each icon is created by inserting the correct character into the
-   content of the :before pseudo element. Like a boss. */
-.icon-ghost:before {
-    content: "\f600";
-}
-.icon-feed:before {
-    content: "\f601";
-}
-.icon-twitter:before {
-    content: "\f602";
-    font-size: 1.1em;
-}
-.icon-google-plus:before {
-    content: "\f603";
-}
-.icon-facebook:before {
-    content: "\f604";
-}
-.icon-arrow-left:before {
-    content: "\f605";
-}
-.icon-stats:before {
-    content: "\f606";
-}
-.icon-location:before {
-    content: "\f607";
-    margin-left: -3px; /* Tracking fix */
-}
-.icon-link:before {
-    content: "\f608";
-}
-
-
-/* ==========================================================================
    2. General - Setting up some base styles
    ========================================================================== */
 
@@ -180,7 +116,7 @@ html {
 body {
     height: 100%;
     max-height: 100%;
-    font-family: "nimbus-sans", serif;
+    font-family: "nimbus sans", sans-serif;
     letter-spacing: 0.01rem;
     font-size: 1.8rem;
     line-height: 1.75em;
@@ -206,7 +142,7 @@ h4, h5, h6 {
     color: #2E2E2E;
     line-height: 1.15em;
     margin: 0 0 0.4em 0;
-    font-family: "nimbus-sans", sans-serif;
+    font-family: "nimbus-sans";
 }
 
 h1 {
@@ -216,6 +152,7 @@ h1 {
     letter-spacing: 0.06em;
     text-indent: -3px;
     text-transform: uppercase;
+    font-weight: 300;
 }
 
 h2 {
@@ -224,11 +161,16 @@ h2 {
     font-size: 22px;
     line-height: 30px;
     letter-spacing: 0.02em;
-    font-weight: normal;
+    font-weight: 400;
+    text-transform: uppercase;
 }
 
 h3 {
-    font-size: 3rem;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.04em;
+    font-weight: 400;
+    text-transform: uppercase;
 }
 
 h4 {
@@ -252,15 +194,25 @@ a:hover {
     color: #111;
 }
 
-p, ul, ol, dl {
+p, p a, ul, ol, dl {
     -webkit-font-feature-settings: 'liga' 1, 'onum' 1, 'kern' 1;
     -moz-font-feature-settings: 'liga' 1, 'onum' 1, 'kern' 1;
     -o-font-feature-settings: 'liga' 1, 'onum' 1, 'kern' 1;
-    margin: 0 0 1.75em 0;
+    margin: 10px 0;
+    color: #646464;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.04em;
+    font-weight: 400;
+}
+
+p a {
+    color: #2a2a2a;
+    font-style: italic;
 }
 
 ol, ul {
-    padding: 0;
+    padding-left: 2em;
 }
 
 ol ol, ul ul,
@@ -306,8 +258,7 @@ hr {
 blockquote {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    margin: 1.75em 0 1.75em -2.2em;
-    padding: 0 0 0 1.75em;
+    margin: 1.75em 0 1.75em 0.8em;
     border-left: #4A4A4A 0.4em solid;
 }
 
@@ -483,6 +434,7 @@ margin on the iframe, cause it breaks stuff. */
 
 .main-nav ul {
     list-style-type: none;
+    padding-left: 0;
 }
 
 .main-nav li h2 {
@@ -507,7 +459,7 @@ margin on the iframe, cause it breaks stuff. */
 }
 
 #filters {
-
+    padding-left: 0.75em;
 }
 
 #filters button {
@@ -564,11 +516,11 @@ margin on the iframe, cause it breaks stuff. */
 /* Big cover image on the home page */
 .main-header {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 4rem;
+    left: 5rem;
     max-width: 240px;
     height: 100%;
-    margin-bottom: 5rem;
+    margin: 0 0 5rem 0;
     text-align: left;
     background: no-repeat center center;
     background-size: cover;
@@ -587,13 +539,12 @@ margin on the iframe, cause it breaks stuff. */
 
 .main-nav a {
     text-decoration: none;
-    font-family: 'nimbus-sans', sans-serif;
 }
 
 .content {
     height:100%;
     float: right;
-    width: 79%;
+    width: 80%;
 }
 
 /* Create a bouncing scroll-down arrow on homepage with cover image */
@@ -974,7 +925,7 @@ body:not(.post-template) .post-title {
 .post-template .post {
     margin-top: 0;
     border-bottom: none;
-    padding-bottom: 0;
+    padding-bottom: 30px;
 }
 
 /* Kill that stylish little circle that was on the border, too */
@@ -994,9 +945,9 @@ body:not(.post-template) .post-title {
 /* Break out larger images to be wider than the main text column
    the class is applied with jQuery */
 .post-content .full-img {
-    width: 126%;
+    width: 90%;
     max-width: none;
-    margin: 0 -13%;
+    margin: 0;
 }
 
 /* The author credit area after the post */
@@ -1054,14 +1005,12 @@ body:not(.post-template) .post-title {
    Doing it like this means it's easier for the author bio
    to be flexible at smaller screen sizes while the share
    links remain at a fixed width the whole time */
-.post-footer .share {
-    position: absolute;
-    top: 6rem;
-    right: 0;
-    width: 140px;
+.share {
+    width: 100%;
+    margin: 0 0 0 5px;
 }
 
-.post-footer .share a {
+.share a {
     font-size: 1.8rem;
     display: inline-block;
     margin: 1rem 1.6rem 1.6rem 0;
@@ -1069,7 +1018,7 @@ body:not(.post-template) .post-title {
     text-decoration: none;
 }
 
-.post-footer .share a:hover {
+.share a:hover {
     color: #50585D;
 }
 
@@ -1265,7 +1214,6 @@ body:not(.post-template) .post-title {
 /* Location, website, and link */
 .author-profile .author-meta {
     margin: 2rem 0;
-    font-family: "nimbus-sans", serif;
     letter-spacing: 0.01rem;
     font-size: 1.7rem;
 }
@@ -1309,7 +1257,6 @@ body:not(.post-template) .post-title {
     width: 80%;
     max-width: 710px;
     margin: 4rem auto;
-    font-family: "nimbus-sans", sans-serif;
     font-size: 1.3rem;
     color: #9EABB3;
     text-align: center;
@@ -1392,18 +1339,17 @@ body:not(.post-template) .post-title {
    ========================================================================== */
 
 .site-footer {
-    background: #fff;
+    font-family: "nimbus-sans";
     position: fixed;
     width: 100%;
     bottom: 0;
     left: 0;
     margin: 8rem 0 0 0;
     padding: 0.5rem 0;
-    border-top: #EBF2F6 1px solid;
-    font-family: "nimbus-sans", sans-serif;
-    font-size: 1rem;
-    line-height: 1.75em;
+    font-size: 12px;
+    line-height: 18px;
     color: #BBC7CC;
+    background: #fff;
 }
 
 .site-footer a {
@@ -1449,11 +1395,16 @@ body:not(.post-template) .post-title {
 @media only screen and (max-width: 1000px) {
 
     .main-nav {
-        padding: 15px;
+        margin: -20px 0 0 0;
+        padding: 0 15px;
     }
 
     .content {
         width: 60%;
+    }
+
+    #filters {
+        display: none;
     }
 
     blockquote {
@@ -1464,10 +1415,8 @@ body:not(.post-template) .post-title {
         -webkit-box-sizing: border-box;
         -moz-box-sizing: border-box;
         box-sizing: border-box;
-        height: auto;
-        min-height: 240px;
+        height: 100%;
         padding: 0;
-        width: 100%;
     }
 
     .scroll-down,
@@ -1476,6 +1425,11 @@ body:not(.post-template) .post-title {
     .archive-template .main-header {
         min-height: 180px;
         padding: 10% 0;
+    }
+
+    .blog-logo {
+        width: 120px;
+        height: 120px;
     }
 
     .blog-logo img {
@@ -1579,14 +1533,20 @@ body:not(.post-template) .post-title {
         margin: 0;
     }
 
+    #filters {
+        display: none;
+    }
+
     .main-header, .main-header-content {
+        top: 1rem;
+        left: 3rem;
         margin-bottom: 15px;
         height: auto;
-        min-width: 100%;
         position: relative;
     }
 
     .content {
+        margin: 5rem 0 0 0;
         width: 100%;
     }
 
@@ -1595,6 +1555,7 @@ body:not(.post-template) .post-title {
     }
 
     .main-nav ul {
+        margin-top: 15px;
         max-width: 45%;
     }
 
@@ -1701,7 +1662,7 @@ body:not(.post-template) .post-title {
 
     p, ul, ol, dl {
         font-size: 0.95em;
-        margin: 0 0 2.5rem 0;
+        margin: 0;
     }
 
     .page-title {
@@ -1788,12 +1749,12 @@ body:not(.post-template) .post-title {
         border-bottom: #EBF2F6 1px dashed;
     }
 
-    .post-footer .share {
+    .share {
         position: static;
         width: auto;
     }
 
-    .post-footer .share a {
+    .share a {
         margin: 1.4rem 0.8rem 0 0.8rem;
     }
 
