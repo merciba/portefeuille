@@ -79,8 +79,15 @@ if (window.location.pathname !== "/") {
 // Init isotope
 var $container = $('.isotope').isotope({
     itemSelector: '.item',
-    layoutMode: 'fitRows'
+    layoutMode: 'masonry'
   });
+
+$('#container').isotope({
+  masonry: {
+    columnWidth: 110,
+    gutterWidth: 10
+  }
+});
 
 // filter functions
 var filterFns = {};
