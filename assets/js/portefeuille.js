@@ -53,7 +53,7 @@ $(window).on('load', function () {
 	 			});
 
 	 			item.gallery_div = $('div[data-id="'+item.link.replace(window.location.origin, '')+'"]');
-	 			//console.log(item);
+	 			console.log(item);
 	 			if (item.nav_item) {
 	 				$('.main-nav ul').append('<li><a href="'+item.link+'"><h2'+(item.link === window.location.href ? ' class="selected"' : '')+'>'+item.title+'</h2></a></li>');
 	 			}
